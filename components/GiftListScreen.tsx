@@ -14,7 +14,7 @@ const GiftListScreen: React.FC<GiftListScreenProps> = ({ gifts, onPurchase }) =>
   const [selectedGiftId, setSelectedGiftId] = useState<number | null>(null);
   const [buyerName, setBuyerName] = useState('');
 
-  const categories: Category[] = ['Todos', 'Cozinha', 'Quarto', 'Banheiro', 'Jantar', 'Decoração'];
+  const categories: Category[] = ['Todos', 'Cozinha', 'Quarto', 'Banheiro', 'Jantar', 'Outros'];
   const filteredGifts = selectedCategory === 'Todos' ? gifts : gifts.filter(g => g.category === selectedCategory);
 
   const handleConfirm = () => {

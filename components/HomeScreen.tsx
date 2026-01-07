@@ -15,7 +15,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
   const [selectedGiftId, setSelectedGiftId] = useState<number | null>(null);
   const [buyerName, setBuyerName] = useState('');
 
-  const categories: Category[] = ['Todos', 'Cozinha', 'Quarto', 'Banheiro', 'Jantar', 'Decoração'];
+  const categories: Category[] = ['Todos', 'Cozinha', 'Quarto', 'Banheiro', 'Jantar', 'Outros'];
   
   const filteredGifts = selectedCategory === 'Todos' 
     ? gifts.slice(0, 6) 
