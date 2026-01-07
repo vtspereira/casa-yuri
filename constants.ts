@@ -1,7 +1,7 @@
 
 import { Gift } from './types';
 
-export const EVENT_DATE = "2026-02-08T67:30:00";
+export const EVENT_DATE = "2026-02-08T16:30:00";
 
 export const INITIAL_GIFTS: Gift[] = [
     // Banheiro
@@ -48,17 +48,17 @@ export const INITIAL_GIFTS: Gift[] = [
     { id: 37, name: "Potes de vidro", category: "Cozinha", image: "https://images.unsplash.com/photo-1601000938259-9e92002320b2?auto=format&fit=crop&q=80&w=800", purchased: false },
     { id: 38, name: "Jarra", category: "Cozinha", image: "https://images.unsplash.com/photo-1587824612693-aa0f203f5c1b?auto=format&fit=crop&q=80&w=800", purchased: false },
     { id: 39, name: "Garrafa térmica (café)", category: "Cozinha", image: "https://images.unsplash.com/photo-1601024445121-e5b82f020549?auto=format&fit=crop&q=80&w=800", purchased: false },
-    { id: 40, name: "Conjunto para sobremesa", category: "Jantar", image: "https://images.unsplash.com/photo-1580554530778-ca36943938b2?auto=format&fit=crop&q=80&w=800", purchased: false },
+    { id: 40, name: "Conjunto para sobremesa", category: "Cozinha", image: "https://images.unsplash.com/photo-1580554530778-ca36943938b2?auto=format&fit=crop&q=80&w=800", purchased: false },
     { id: 41, name: "Rodinho de pia", category: "Cozinha", image: "https://images.unsplash.com/photo-1585933646149-8e2c89d06ef8?auto=format&fit=crop&q=80&w=800", purchased: false },
     { id: 42, name: "Saleiro", category: "Cozinha", image: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&q=80&w=800", purchased: false },
-    { id: 43, name: "Jogo americano", category: "Jantar", image: "https://images.unsplash.com/photo-1600857544200-242c8e37d3c6?auto=format&fit=crop&q=80&w=800", purchased: false },
+    { id: 43, name: "Jogo americano", category: "Cozinha", image: "https://images.unsplash.com/photo-1600857544200-242c8e37d3c6?auto=format&fit=crop&q=80&w=800", purchased: false },
     { id: 44, name: "Clever dripper (coador)", category: "Cozinha", image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800", purchased: false },
     { id: 45, name: "Cortador de pizza", category: "Cozinha", image: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&q=80&w=800", purchased: false },
-    { id: 46, name: "Jogo de pizza", category: "Jantar", image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&q=80&w=800", purchased: false },
+    { id: 46, name: "Jogo de pizza", category: "Cozinha", image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&q=80&w=800", purchased: false },
     { id: 47, name: "Colheres de silicone", category: "Cozinha", image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=800", purchased: false },
     { id: 48, name: "Escorredor de macarrão", category: "Cozinha", image: "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?auto=format&fit=crop&q=80&w=800", purchased: false },
-    { id: 49, name: "Jogo de copos", category: "Jantar", image: "https://images.unsplash.com/photo-1572635148818-ef6fd45eb394?auto=format&fit=crop&q=80&w=800", purchased: false },
-    { id: 50, name: "Jogo de pratos", category: "Jantar", image: "https://images.unsplash.com/photo-1580554530778-ca36943938b2?auto=format&fit=crop&q=80&w=800", purchased: false },
+    { id: 49, name: "Jogo de copos", category: "Cozinha", image: "https://images.unsplash.com/photo-1572635148818-ef6fd45eb394?auto=format&fit=crop&q=80&w=800", purchased: false },
+    { id: 50, name: "Jogo de pratos", category: "Cozinha", image: "https://images.unsplash.com/photo-1580554530778-ca36943938b2?auto=format&fit=crop&q=80&w=800", purchased: false },
     { id: 51, name: "Formas para assar", category: "Cozinha", image: "https://images.unsplash.com/photo-1621447504864-d8686e12698c?auto=format&fit=crop&q=80&w=800", purchased: false },
     { id: 52, name: "Conjunto de tigelas", category: "Cozinha", image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=800", purchased: false },
     { id: 53, name: "Peneira", category: "Cozinha", image: "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?auto=format&fit=crop&q=80&w=800", purchased: false },
@@ -70,15 +70,15 @@ export const INITIAL_GIFTS: Gift[] = [
     { id: 59, name: "Torradeira", category: "Cozinha", image: "https://images.unsplash.com/photo-1605221197999-73e3cb4743c5?auto=format&fit=crop&q=80&w=800", purchased: false },
     { id: 60, name: "Potes herméticos", category: "Cozinha", image: "https://images.unsplash.com/photo-1601000938259-9e92002320b2?auto=format&fit=crop&q=80&w=800", purchased: false },
 
-    // Outros / Decoração
-    { id: 61, name: "Mop", category: "Decoração", image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=800", purchased: false },
-    { id: 62, name: "Aspirador de pó", category: "Decoração", image: "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&q=80&w=800", purchased: false },
-    { id: 63, name: "Porta chaves", category: "Decoração", image: "https://images.unsplash.com/photo-1598300188089-f32a51a87c68?auto=format&fit=crop&q=80&w=800", purchased: false },
-    { id: 64, name: "Ferro de passar", category: "Decoração", image: "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&q=80&w=800", purchased: false },
-    { id: 65, name: "Pano de chão", category: "Decoração", image: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&q=80&w=800", purchased: false },
-    { id: 66, name: "Pregadores de roupa", category: "Decoração", image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&q=80&w=800", purchased: false },
-    { id: 67, name: "Tábua de passar roupa", category: "Decoração", image: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&q=80&w=800", purchased: false },
-    { id: 68, name: "Vassoura", category: "Decoração", image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=800", purchased: false }
+    // Outros / Outros
+    { id: 61, name: "Mop", category: "Outros", image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=800", purchased: false },
+    { id: 62, name: "Aspirador de pó", category: "Outros", image: "https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&q=80&w=800", purchased: false },
+    { id: 63, name: "Porta chaves", category: "Outros", image: "https://images.unsplash.com/photo-1598300188089-f32a51a87c68?auto=format&fit=crop&q=80&w=800", purchased: false },
+    { id: 64, name: "Ferro de passar", category: "Outros", image: "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&q=80&w=800", purchased: false },
+    { id: 65, name: "Pano de chão", category: "Outros", image: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&q=80&w=800", purchased: false },
+    { id: 66, name: "Pregadores de roupa", category: "Outros", image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&q=80&w=800", purchased: false },
+    { id: 67, name: "Tábua de passar roupa", category: "Outros", image: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&q=80&w=800", purchased: false },
+    { id: 68, name: "Vassoura", category: "Outros", image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=800", purchased: false }
 ];
 
 export const PALETTE = [
