@@ -8,4 +8,4 @@ export interface Gift {
   buyerName?: string;
 }
 
-export type Category = 'Todos' | 'Cozinha' | 'Quarto' | 'Banheiro' | 'Jantar' | 'Outros';
+export type Category = 'Todos' | 'Cozinha' | 'Quarto' | 'Banheiro' |  'Outros';

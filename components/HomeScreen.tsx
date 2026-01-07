@@ -15,11 +15,19 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
   const [selectedGiftId, setSelectedGiftId] = useState<number | null>(null);
   const [buyerName, setBuyerName] = useState('');
 
-  const categories: Category[] = ['Todos', 'Cozinha', 'Quarto', 'Banheiro', 'Jantar', 'Outros'];
+  const categories: Category[] = ['Todos', 'Cozinha', 'Quarto', 'Banheiro',  'Outros'];
   
-  const filteredGifts = selectedCategory === 'Todos' 
-    ? gifts.slice(0, 6) 
-    : gifts.filter(g => g.category === selectedCategory).slice(0, 6);
+  // Ordenar alfabeticamente e filtrar
+  const categoryGifts = selectedCategory === 'Todos'
+    ? [...gifts].sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'))
+    : gifts.filter(g => g.category === selectedCategory).sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
+
+  const filteredGifts = categoryGifts.slice(0, 7);
+  const totalInCategory = categoryGifts.length;
+  const hasMore = totalInCategory > 7;
+
+  // Pegar uma imagem aleatória da categoria para usar como fundo no card "Ver Todos"
+  const randomGift = categoryGifts[Math.floor(Math.random() * Math.min(categoryGifts.length, 10))];
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -183,7 +191,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
             {filteredGifts.map(gift => (
               <div key={gift.id} className={`flex flex-col group bg-background-light dark:bg-gray-800/50 p-2 rounded-xl transition-all ${gift.purchased ? 'opacity-50 grayscale' : ''}`}>
                 <div className="aspect-square w-full rounded-lg overflow-hidden relative mb-2">
-                  <img src={gift.image} alt={gift.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <img src={gift.image} alt={gift.name} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
                   {gift.purchased && (
                     <div className="absolute inset-0 bg-white/40 backdrop-blur-[1px] flex items-center justify-center">
                       <span className="text-[8px] font-black uppercase tracking-widest text-text-main border-y border-text-main py-1 px-2">Escolhido</span>
@@ -193,9 +201,9 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
                 <div className="px-2 pb-1 flex flex-col flex-1">
                   <span className="text-[7px] font-bold text-primary uppercase mb-0.5 tracking-widest">{gift.category}</span>
                   <h4 className="text-[10px] md:text-[11px] font-bold text-text-main dark:text-white uppercase leading-tight line-clamp-2 h-7">{gift.name}</h4>
-                  
+
                   {!gift.purchased && (
-                    <button 
+                    <button
                       onClick={() => { setSelectedGiftId(gift.id); setBuyerName(''); }}
                       className="mt-2 w-full py-2 border border-primary text-primary text-[8px] font-black uppercase tracking-widest rounded-md hover:bg-primary hover:text-white transition-all"
                     >
@@ -205,6 +213,36 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
                 </div>
               </div>
             ))}
+
+            {hasMore && randomGift && (
+              <Link
+                to="/gifts"
+                state={{ initialCategory: selectedCategory }}
+                className="flex flex-col group p-2 rounded-xl transition-all hover:scale-[1.02] duration-300"
+              >
+                <div className="aspect-square w-full rounded-lg overflow-hidden relative mb-2">
+                  {/* Imagem de fundo borrada */}
+                  <img
+                    src={randomGift.image}
+                    alt="Ver todos"
+                    className="absolute inset-0 w-full h-full object-cover blur-sm scale-110"
+                  />
+                  {/* Overlay escuro */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/80 to-primary/70"></div>
+                  {/* Conteúdo */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+                    <span className="material-symbols-outlined text-white text-5xl mb-3 drop-shadow-lg">grid_view</span>
+                    <h4 className="text-sm md:text-base font-black text-white uppercase leading-tight drop-shadow-md">Ver Todos</h4>
+                    <div className="mt-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full">
+                      <p className="text-[10px] font-bold text-white">+{totalInCategory - 7}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="px-2 pb-1">
+                  <p className="text-[9px] text-text-sub text-center uppercase tracking-wider">Ver lista completa</p>
+                </div>
+              </Link>
+            )}
           </div>
         </section>
 

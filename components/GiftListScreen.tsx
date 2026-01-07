@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Gift, Category } from '../types';
 
 interface GiftListScreenProps {
@@ -10,12 +10,23 @@ interface GiftListScreenProps {
 
 const GiftListScreen: React.FC<GiftListScreenProps> = ({ gifts, onPurchase }) => {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState<Category>('Todos');
+  const location = useLocation();
+  const initialCategory = (location.state as { initialCategory?: Category })?.initialCategory || 'Todos';
+  const [selectedCategory, setSelectedCategory] = useState<Category>(initialCategory);
+
+  // Scroll para o topo quando a página carregar
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   const [selectedGiftId, setSelectedGiftId] = useState<number | null>(null);
   const [buyerName, setBuyerName] = useState('');
 
-  const categories: Category[] = ['Todos', 'Cozinha', 'Quarto', 'Banheiro', 'Jantar', 'Outros'];
-  const filteredGifts = selectedCategory === 'Todos' ? gifts : gifts.filter(g => g.category === selectedCategory);
+  const categories: Category[] = ['Todos', 'Cozinha', 'Quarto', 'Banheiro',  'Outros'];
+
+  // Ordenar alfabeticamente
+  const filteredGifts = selectedCategory === 'Todos'
+    ? [...gifts].sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'))
+    : gifts.filter(g => g.category === selectedCategory).sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
 
   const handleConfirm = () => {
     const trimmedName = buyerName.trim();
@@ -73,7 +84,7 @@ const GiftListScreen: React.FC<GiftListScreenProps> = ({ gifts, onPurchase }) =>
           {filteredGifts.map(gift => (
             <div key={gift.id} className={`flex flex-col bg-white p-2 rounded-xl shadow-sm border border-gray-50 transition-all hover:translate-y-[-4px] ${gift.purchased ? 'opacity-50 grayscale' : ''}`}>
               <div className="aspect-square w-full rounded-lg overflow-hidden bg-background-light relative mb-2">
-                <img src={gift.image} alt={gift.name} className="w-full h-full object-cover" />
+                <img src={gift.image} alt={gift.name} className="w-full h-full object-contain" />
                 {gift.purchased && (
                   <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px] flex items-center justify-center text-center px-2">
                     <span className="text-[8px] font-black uppercase tracking-widest text-text-main border-y border-text-main py-1">Item Escolhido</span>
