@@ -87,7 +87,7 @@ const GiftListScreen: React.FC<GiftListScreenProps> = ({ gifts, onPurchase }) =>
                 <img src={gift.image} alt={gift.name} className="w-full h-full object-contain" />
                 {gift.purchased && (
                   <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px] flex items-center justify-center text-center px-2">
-                    <span className="text-[8px] font-black uppercase tracking-widest text-text-main border-y border-text-main py-1">Item Escolhido</span>
+                    <span className="text-[8px] font-black uppercase tracking-widest text-text-main border-y border-text-main py-1">Reservado</span>
                   </div>
                 )}
               </div>
