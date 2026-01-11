@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Gift, Category } from '../types';
 
@@ -13,11 +13,6 @@ const GiftListScreen: React.FC<GiftListScreenProps> = ({ gifts, onPurchase }) =>
   const location = useLocation();
   const initialCategory = (location.state as { initialCategory?: Category })?.initialCategory || 'Todos';
   const [selectedCategory, setSelectedCategory] = useState<Category>(initialCategory);
-
-  // Scroll para o topo quando a página carregar
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
   const [selectedGiftId, setSelectedGiftId] = useState<number | null>(null);
   const [buyerName, setBuyerName] = useState('');
 
@@ -64,14 +59,14 @@ const GiftListScreen: React.FC<GiftListScreenProps> = ({ gifts, onPurchase }) =>
       </header>
 
       <main className="max-w-5xl mx-auto px-6 py-12">
-        <div className="flex gap-4 overflow-x-auto no-scrollbar mb-12 justify-center">
+        <div className="flex flex-wrap gap-4 mb-12 justify-center">
           {categories.map(cat => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${
-                selectedCategory === cat 
-                  ? 'bg-primary text-white' 
+                selectedCategory === cat
+                  ? 'bg-primary text-white'
                   : 'bg-white text-text-sub border border-gray-100 hover:border-primary/50'
               }`}
             >

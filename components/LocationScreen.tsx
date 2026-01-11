@@ -5,19 +5,8 @@ import { useNavigate } from 'react-router-dom';
 const LocationScreen: React.FC = () => {
   const navigate = useNavigate();
 
-  const openGPS = () => {
-    // Coordenadas aproximadas do endereço
-    const latitude = -25.4284;
-    const longitude = -49.2733;
-    const address = 'Tv. Francisco de Freitas Saldanha, 43 - Boa Vista, Curitiba - PR';
-
-    // Tenta abrir com geo: (abre o app de GPS padrão do dispositivo)
-    window.location.href = `geo:${latitude},${longitude}?q=${encodeURIComponent(address)}`;
-
-    // Fallback para Google Maps web se geo: não funcionar (desktop)
-    setTimeout(() => {
-      window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`, '_blank');
-    }, 500);
+  const openGoogleMaps = () => {
+    window.open('https://www.google.com/maps/search/?api=1&query=Tv.+Francisco+de+Freitas+Saldanha,+43+-+Boa+Vista,+Curitiba+-+PR,+82560-350', '_blank');
   };
 
   return (
@@ -81,11 +70,11 @@ const LocationScreen: React.FC = () => {
             </div>
 
             <button
-              onClick={openGPS}
+              onClick={openGoogleMaps}
               className="w-full h-16 bg-primary text-white font-bold uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center gap-3 hover:opacity-90 active:scale-95 transition-all"
             >
               <span className="material-symbols-outlined">near_me</span>
-              Abrir no GPS
+              Abrir no Google Maps
             </button>
           </div>
 

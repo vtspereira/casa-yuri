@@ -169,14 +169,14 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
               </Link>
             </div>
 
-            <div className="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+            <div className="flex flex-wrap gap-3 pb-2">
               {categories.map(cat => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-5 py-2 rounded-full text-[9px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${
-                    selectedCategory === cat 
-                      ? 'bg-primary text-white border-primary' 
+                  className={`px-5 py-2 rounded-full text-[9px] font-black uppercase tracking-widest transition-all border ${
+                    selectedCategory === cat
+                      ? 'bg-primary text-white border-primary'
                       : 'bg-white text-text-sub border-gray-100 hover:border-primary/50'
                   }`}
                 >

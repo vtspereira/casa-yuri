@@ -6,6 +6,7 @@ import HomeScreen from './components/HomeScreen';
 import GiftListScreen from './components/GiftListScreen';
 import LocationScreen from './components/LocationScreen';
 import PaletteScreen from './components/PaletteScreen';
+import ScrollToTop from './components/ScrollToTop';
 import { initializeGifts, subscribeToGifts, purchaseGift } from './firebase/giftsService';
 
 const App: React.FC = () => {
@@ -53,6 +54,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-background-light dark:bg-background-dark selection:bg-primary/20 selection:text-primary">
         <Routes>
           <Route path="/" element={<HomeScreen gifts={gifts} onPurchase={handlePurchase} />} />
