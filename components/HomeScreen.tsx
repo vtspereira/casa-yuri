@@ -73,8 +73,8 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
       <header className="sticky top-0 z-[60] bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
         <div className="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex flex-col">
-            <span className="font-display font-bold text-lg tracking-tight text-text-main dark:text-white uppercase">Vitor & Manu</span>
-            <span className="text-[10px] text-primary font-bold tracking-[0.3em] uppercase">Casa Nova</span>
+            <span className="font-display font-bold text-lg tracking-tight text-text-main dark:text-white uppercase">Manu & Vitor</span>
+            <span className="text-[10px] text-primary font-bold tracking-[0.3em] uppercase">Chá de Casa Nova</span>
           </div>
         </div>
       </header>
@@ -87,7 +87,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
               <div className="space-y-2">
                 <span className="text-primary font-bold text-xs tracking-widest uppercase">08 de Fevereiro, 2026</span>
                 <h1 className="text-4xl md:text-6xl font-display font-light text-text-main tracking-tight leading-tight">
-                  Seja bem-vindo ao nosso <span className="font-bold italic">novo lar.</span>
+                  Seja <span className="whitespace-nowrap">bem-vindo</span> ao nosso <span className="font-bold italic">novo lar.</span>
                 </h1>
               </div>
               <p className="text-text-sub text-base leading-relaxed max-w-sm">
@@ -150,7 +150,6 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
                 <div className="w-20 h-20 rounded-full border border-gray-100 shadow-inner" style={{backgroundColor: color.hex}}></div>
                 <div className="text-center">
                   <p className="text-xs font-bold text-text-main dark:text-white uppercase tracking-widest">{color.name}</p>
-                  <p className="text-[9px] text-text-sub font-mono">{color.hex}</p>
                 </div>
               </div>
             ))}
@@ -248,7 +247,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
 
         <footer className="pt-20 pb-10 text-center space-y-4">
           <div className="w-10 h-[1px] bg-primary mx-auto opacity-30"></div>
-          <p className="font-display font-bold text-text-main dark:text-white tracking-[0.4em] uppercase text-xs">V + M</p>
+          <p className="font-display font-bold text-text-main dark:text-white tracking-[0.4em] uppercase text-xs">M + V</p>
           <p className="text-[10px] text-text-sub uppercase tracking-widest">Agradecemos de coração por fazer parte da nossa história.</p>
         </footer>
       </main>

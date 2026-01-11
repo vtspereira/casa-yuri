@@ -5,8 +5,19 @@ import { useNavigate } from 'react-router-dom';
 const LocationScreen: React.FC = () => {
   const navigate = useNavigate();
 
-  const openGoogleMaps = () => {
-    window.open('https://www.google.com/maps/search/?api=1&query=/Tv.+Francisco+de+Freitas+Saldanha,+43+-+Boa+Vista,+Curitiba+-+PR,+82560-350', '_blank');
+  const openGPS = () => {
+    // Coordenadas aproximadas do endereço
+    const latitude = -25.4284;
+    const longitude = -49.2733;
+    const address = 'Tv. Francisco de Freitas Saldanha, 43 - Boa Vista, Curitiba - PR';
+
+    // Tenta abrir com geo: (abre o app de GPS padrão do dispositivo)
+    window.location.href = `geo:${latitude},${longitude}?q=${encodeURIComponent(address)}`;
+
+    // Fallback para Google Maps web se geo: não funcionar (desktop)
+    setTimeout(() => {
+      window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`, '_blank');
+    }, 500);
   };
 
   return (
@@ -61,20 +72,20 @@ const LocationScreen: React.FC = () => {
                   <span className="material-symbols-outlined text-primary text-2xl">local_parking</span>
                   <div>
                     <strong className="text-primary uppercase text-[10px] tracking-widest block mb-1">Estacionamento</strong>
-                    <p className="text-xs text-text-sub font-medium leading-relaxed italic">
-                      A rua é pequena. Evite estacionar do outro lado da rua onde já há carros estacionados.
+                    <p className="text-xs text-text-sub font-medium leading-relaxed">
+                      A rua é estreita. <strong>Estacione apenas de um lado</strong> para permitir a passagem de veículos.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <button 
-              onClick={openGoogleMaps}
+            <button
+              onClick={openGPS}
               className="w-full h-16 bg-primary text-white font-bold uppercase tracking-[0.2em] text-[10px] rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center gap-3 hover:opacity-90 active:scale-95 transition-all"
             >
               <span className="material-symbols-outlined">near_me</span>
-              Abrir no Google Maps
+              Abrir no GPS
             </button>
           </div>
 
