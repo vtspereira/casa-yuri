@@ -81,7 +81,7 @@ const LocationScreen: React.FC = () => {
           {/* Card de Visualização */}
           <div className="relative h-[400px] md:h-auto rounded-2xl overflow-hidden shadow-sm border border-gray-100">
             <img
-              src="/src/images/endereco.jpg"
+              src="/images/endereco.jpg"
               className="absolute inset-0 w-full h-full object-cover"
               alt="Nosso Endereço"
             />

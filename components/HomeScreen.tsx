@@ -96,7 +96,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
             </div>
             <div className="h-full min-h-[400px] relative overflow-hidden">
               <img
-                src="/src/images/home.jpg"
+                src="/images/home.jpg"
                 alt="Nosso Novo Lar"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
               />
