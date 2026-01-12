@@ -253,46 +253,82 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
       </main>
 
       {/* Modal de Confirmação */}
-      {selectedGiftId !== null && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
-          <div className="absolute inset-0 bg-text-main/30 backdrop-blur-sm transition-opacity" onClick={() => setSelectedGiftId(null)}></div>
-          <div className="relative w-full max-w-sm bg-white rounded-2xl p-10 shadow-2xl border border-gray-100">
-            <div className="flex flex-col items-center text-center space-y-6">
-              <div className="space-y-3">
-                <h3 className="text-xl font-display font-bold text-text-main uppercase tracking-tight">Confirmar Presente</h3>
-                <div className="bg-red-50 p-3 rounded-lg border border-red-100">
-                   <p className="text-[9px] text-red-600 font-bold uppercase tracking-tight leading-relaxed">
-                     Atenção: Esta ação é irreversível. Após confirmar, este item será retirado da lista e não poderá ser cancelado.
-                   </p>
+      {selectedGiftId !== null && (() => {
+        const selectedGift = gifts.find(g => g.id === selectedGiftId);
+        return (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <div className="absolute inset-0 bg-text-main/30 backdrop-blur-sm" onClick={() => setSelectedGiftId(null)}></div>
+            <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden max-h-[90vh] overflow-y-auto">
+              {/* Imagem do Produto */}
+              <div className="relative h-48 md:h-64 bg-gradient-to-br from-background-light to-gray-50">
+                <div className="absolute inset-0 flex items-center justify-center p-4">
+                  <img
+                    src={selectedGift?.image}
+                    alt={selectedGift?.name}
+                    className="w-full h-full object-contain drop-shadow-2xl"
+                  />
                 </div>
-                <p className="text-xs text-text-sub font-medium">Item: <span className="text-primary font-bold">{gifts.find(g => g.id === selectedGiftId)?.name}</span></p>
-              </div>
-              
-              <div className="w-full text-left space-y-2">
-                <label className="text-[10px] font-bold text-text-sub uppercase tracking-widest">Seu Nome (Apenas letras)</label>
-                <input
-                  type="text"
-                  value={buyerName}
-                  onChange={(e) => setBuyerName(e.target.value)}
-                  placeholder="Seu Nome e Sobrenome"
-                  className="w-full px-4 py-3 bg-background-light border-none rounded-lg text-sm focus:ring-1 focus:ring-primary/50 outline-none font-medium"
-                  autoFocus
-                />
+                <div className="absolute top-3 right-3">
+                  <button
+                    onClick={() => setSelectedGiftId(null)}
+                    className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg hover:bg-white transition-all"
+                  >
+                    <span className="material-symbols-outlined text-lg text-text-sub">close</span>
+                  </button>
+                </div>
               </div>
 
-              <div className="flex flex-col gap-3 w-full">
-                <button 
-                  onClick={handleConfirm}
-                  className="w-full py-4 bg-primary text-white font-bold uppercase tracking-widest text-[10px] rounded-lg shadow-sm hover:opacity-90 transition-all"
-                >
-                  Confirmar Escolha
-                </button>
-                <button onClick={() => setSelectedGiftId(null)} className="text-[10px] font-bold text-text-sub uppercase tracking-widest">Voltar</button>
+              {/* Conteúdo */}
+              <div className="p-5 md:p-8 space-y-4 md:space-y-6">
+                <div className="text-center space-y-2">
+                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-[8px] font-bold uppercase tracking-widest rounded-full">
+                    {selectedGift?.category}
+                  </span>
+                  <h3 className="text-base md:text-lg font-bold text-text-main uppercase tracking-tight leading-tight">
+                    {selectedGift?.name}
+                  </h3>
+                </div>
+
+                <div className="bg-red-50 p-3 md:p-4 rounded-xl border border-red-100">
+                  <div className="flex items-start gap-2 md:gap-3">
+                    <span className="material-symbols-outlined text-red-500 text-lg md:text-xl flex-shrink-0">warning</span>
+                    <p className="text-[9px] md:text-[10px] text-red-600 font-bold uppercase tracking-tight leading-relaxed">
+                      Atenção: Esta ação é irreversível. Uma vez confirmado, o item será removido da lista para outros convidados.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold text-text-sub uppercase tracking-widest">Seu Nome (Apenas letras)</label>
+                  <input
+                    type="text"
+                    value={buyerName}
+                    onChange={(e) => setBuyerName(e.target.value)}
+                    placeholder="Nome Completo"
+                    className="w-full px-4 py-3 bg-background-light border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/50 outline-none font-medium"
+                    autoFocus
+                  />
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <button
+                    onClick={handleConfirm}
+                    className="w-full py-3 md:py-4 bg-primary text-white font-bold uppercase tracking-widest text-[10px] rounded-lg shadow-sm hover:opacity-90 transition-all"
+                  >
+                    Confirmar Presente
+                  </button>
+                  <button
+                    onClick={() => setSelectedGiftId(null)}
+                    className="text-[10px] font-bold text-text-sub uppercase tracking-widest hover:text-text-main transition-colors pb-1"
+                  >
+                    Cancelar
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
     </div>
   );
 };

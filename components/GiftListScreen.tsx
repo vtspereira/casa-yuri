@@ -108,19 +108,19 @@ const GiftListScreen: React.FC<GiftListScreenProps> = ({ gifts, onPurchase }) =>
       {selectedGiftId !== null && (() => {
         const selectedGift = gifts.find(g => g.id === selectedGiftId);
         return (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             <div className="absolute inset-0 bg-text-main/30 backdrop-blur-sm" onClick={() => setSelectedGiftId(null)}></div>
-            <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
+            <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden max-h-[90vh] overflow-y-auto">
               {/* Imagem do Produto */}
-              <div className="relative h-80 bg-gradient-to-br from-background-light to-gray-50">
-                <div className="absolute inset-0 flex items-center justify-center p-6">
+              <div className="relative h-48 md:h-64 bg-gradient-to-br from-background-light to-gray-50">
+                <div className="absolute inset-0 flex items-center justify-center p-4">
                   <img
                     src={selectedGift?.image}
                     alt={selectedGift?.name}
                     className="w-full h-full object-contain drop-shadow-2xl"
                   />
                 </div>
-                <div className="absolute top-4 right-4">
+                <div className="absolute top-3 right-3">
                   <button
                     onClick={() => setSelectedGiftId(null)}
                     className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg hover:bg-white transition-all"
@@ -131,20 +131,20 @@ const GiftListScreen: React.FC<GiftListScreenProps> = ({ gifts, onPurchase }) =>
               </div>
 
               {/* Conteúdo */}
-              <div className="p-8 space-y-6">
+              <div className="p-5 md:p-8 space-y-4 md:space-y-6">
                 <div className="text-center space-y-2">
                   <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-[8px] font-bold uppercase tracking-widest rounded-full">
                     {selectedGift?.category}
                   </span>
-                  <h3 className="text-lg font-bold text-text-main uppercase tracking-tight leading-tight">
+                  <h3 className="text-base md:text-lg font-bold text-text-main uppercase tracking-tight leading-tight">
                     {selectedGift?.name}
                   </h3>
                 </div>
 
-                <div className="bg-red-50 p-4 rounded-xl border border-red-100">
-                  <div className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-red-500 text-xl flex-shrink-0">warning</span>
-                    <p className="text-[10px] text-red-600 font-bold uppercase tracking-tight leading-relaxed">
+                <div className="bg-red-50 p-3 md:p-4 rounded-xl border border-red-100">
+                  <div className="flex items-start gap-2 md:gap-3">
+                    <span className="material-symbols-outlined text-red-500 text-lg md:text-xl flex-shrink-0">warning</span>
+                    <p className="text-[9px] md:text-[10px] text-red-600 font-bold uppercase tracking-tight leading-relaxed">
                       Atenção: Esta ação é irreversível. Uma vez confirmado, o item será removido da lista para outros convidados.
                     </p>
                   </div>
@@ -165,13 +165,13 @@ const GiftListScreen: React.FC<GiftListScreenProps> = ({ gifts, onPurchase }) =>
                 <div className="flex flex-col gap-3">
                   <button
                     onClick={handleConfirm}
-                    className="w-full py-4 bg-primary text-white font-bold uppercase tracking-widest text-[10px] rounded-lg shadow-sm hover:opacity-90 transition-all"
+                    className="w-full py-3 md:py-4 bg-primary text-white font-bold uppercase tracking-widest text-[10px] rounded-lg shadow-sm hover:opacity-90 transition-all"
                   >
                     Confirmar Presente
                   </button>
                   <button
                     onClick={() => setSelectedGiftId(null)}
-                    className="text-[10px] font-bold text-text-sub uppercase tracking-widest hover:text-text-main transition-colors"
+                    className="text-[10px] font-bold text-text-sub uppercase tracking-widest hover:text-text-main transition-colors pb-1"
                   >
                     Cancelar
                   </button>
