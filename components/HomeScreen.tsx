@@ -95,10 +95,10 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
               </p>
             </div>
             <div className="h-full min-h-[400px] relative overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=2000" 
-                alt="Interior Cozinha" 
-                className="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:scale-105 transition-transform duration-1000"
+              <img
+                src="/src/images/home.jpg"
+                alt="Nosso Novo Lar"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
               />
             </div>
           </div>

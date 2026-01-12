@@ -80,10 +80,10 @@ const LocationScreen: React.FC = () => {
 
           {/* Card de Visualização */}
           <div className="relative h-[400px] md:h-auto rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-            <img 
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000" 
-              className="absolute inset-0 w-full h-full object-cover grayscale-[10%]"
-              alt="Fachada Residencial"
+            <img
+              src="/src/images/endereco.jpg"
+              className="absolute inset-0 w-full h-full object-cover"
+              alt="Nosso Endereço"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <div className="absolute bottom-8 left-8 right-8">
