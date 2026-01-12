@@ -306,7 +306,6 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
                     onChange={(e) => setBuyerName(e.target.value)}
                     placeholder="Nome Completo"
                     className="w-full px-4 py-3 bg-background-light border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/50 outline-none font-medium"
-                    autoFocus
                   />
                 </div>
 
