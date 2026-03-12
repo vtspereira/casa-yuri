@@ -6,13 +6,13 @@ const LocationScreen: React.FC = () => {
   const navigate = useNavigate();
 
   const openGoogleMaps = () => {
-    window.open('https://www.google.com/maps/search/?api=1&query=Tv.+Francisco+de+Freitas+Saldanha,+43+-+Boa+Vista,+Curitiba+-+PR,+82560-350', '_blank');
+    window.open('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3605.536406429234!2d-49.24538090000001!3d-25.353333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce70877ae8d95%3A0xa9eaf37caa070b9b!2sRua%20Alberto%20Otto%2C%201316%20-%20Santa%20C%C3%A2ndida%2C%20Curitiba%20-%20PR%2C%2082710-150!5e0!3m2!1spt-BR!2sbr!4v1773269517600!5m2!1spt-BR!2sbr', '_blank');
   };
 
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark pb-24">
       {/* Navbar Minimalista */}
-      <header className="sticky top-0 z-[60] bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+      <header className="sticky top-0 z-[60] bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-primary/10">
         <div className="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
           <button onClick={() => navigate('/')} className="flex items-center gap-2 text-text-sub hover:text-primary transition-colors">
             <span className="material-symbols-outlined text-xl">west</span>
@@ -32,7 +32,7 @@ const LocationScreen: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {/* Card de Informações */}
           <div className="space-y-6 flex flex-col">
-            <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm space-y-8 flex-1">
+            <div className="bg-white dark:bg-white/5 p-8 rounded-2xl border border-primary/10 shadow-card space-y-8 flex-1">
               <div className="flex items-start gap-4">
                 <div className="bg-primary/10 text-primary p-3 rounded-xl shrink-0">
                   <span className="material-symbols-outlined">pin_drop</span>
@@ -40,7 +40,7 @@ const LocationScreen: React.FC = () => {
                 <div>
                   <h3 className="font-bold text-text-main dark:text-white uppercase text-[10px] tracking-widest mb-1">Endereço do Evento</h3>
                   <p className="text-text-sub text-sm leading-relaxed">
-                    Tv. Francisco de Freitas Saldanha, 43 - Boa Vista<br/>
+                    R. Alberto Otto, 1316 - Santa Cândida<br/>
                     Curitiba - PR
                   </p>
                 </div>
@@ -56,7 +56,7 @@ const LocationScreen: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-8 border-t border-gray-50 dark:border-gray-800">
+              <div className="pt-8 border-t border-primary/10">
                 <div className="bg-primary/5 p-5 rounded-xl flex items-start gap-4 border border-primary/10">
                   <span className="material-symbols-outlined text-primary text-2xl">local_parking</span>
                   <div>
@@ -79,7 +79,7 @@ const LocationScreen: React.FC = () => {
           </div>
 
           {/* Card de Visualização */}
-          <div className="relative h-[400px] md:h-auto rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+          <div className="relative h-[400px] md:h-auto rounded-2xl overflow-hidden shadow-sm border border-primary/10">
             <img
               src="/images/endereco.jpg"
               className="absolute inset-0 w-full h-full object-cover"

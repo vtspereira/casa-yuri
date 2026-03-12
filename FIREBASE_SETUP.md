@@ -1,45 +1,44 @@
 # Configuração do Firebase
 
-## Passo 1: Criar um projeto no Firebase
+## Passo 1: Criar o projeto
 
 1. Acesse [Firebase Console](https://console.firebase.google.com/)
-2. Clique em "Adicionar projeto"
-3. Digite um nome para o projeto (ex: "casa-nova-presentes")
-4. Siga os passos para criar o projeto
+2. Clique em **"Adicionar projeto"**
+3. Digite um nome para o projeto (ex: "casa-yuri-presentes")
+4. Desative o Google Analytics se não precisar
+5. Clique em **"Criar projeto"**
 
-## Passo 2: Configurar o Firestore Database
+## Passo 2: Criar o Firestore
 
-1. No menu lateral, clique em "Firestore Database"
-2. Clique em "Criar banco de dados"
-3. Escolha o modo de **produção**
-4. Selecione a localização (recomendado: southamerica-east1 - São Paulo)
-5. Aguarde a criação do banco de dados
+1. No menu lateral, clique em **"Firestore Database"**
+2. Clique em **"Criar banco de dados"**
+3. Escolha o modo **Produção**
+4. Selecione a localização **southamerica-east1** (São Paulo)
+5. Clique em **"Ativar"**
 
-## Passo 3: Configurar as regras de segurança do Firestore
+## Passo 3: Regras de segurança
 
-No Firebase Console, vá em **Firestore Database > Regras** e substitua pelas seguintes regras:
+1. Em **Firestore Database**, abra a aba **"Regras"**
+2. Substitua o conteúdo por (usando a coleção `gifts_yuri`):
 
 ```
 rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /gifts/{giftId} {
-      // Permite leitura para todos
+    match /gifts_yuri/{giftId} {
       allow read: if true;
-
-      // Permite escrita apenas se o presente ainda não foi comprado
       allow update: if request.resource.data.purchased == true
                     && resource.data.purchased == false
                     && request.resource.data.buyerName is string
                     && request.resource.data.buyerName.size() >= 2;
-
-      // Permite criar documentos (para inicialização)
       allow create: if true;
     }
   }
 }
 ```
+
+3. Clique em **"Publicar"**
 
 Essas regras garantem que:
 - Qualquer pessoa pode ver os presentes
@@ -47,38 +46,38 @@ Essas regras garantem que:
 - Uma vez comprado, não pode ser desmarcado (ação irreversível)
 - O nome do comprador deve ter pelo menos 2 caracteres
 
-## Passo 4: Obter as credenciais do Firebase
+## Passo 4: Registrar o app web
 
-1. No Firebase Console, clique no ícone de engrenagem ⚙️ > "Configurações do projeto"
-2. Role para baixo até "Seus aplicativos"
-3. Clique no ícone Web `</>`
-4. Registre seu aplicativo com um nome (ex: "casa-nova-web")
-5. Copie as credenciais que aparecem
+1. Clique no ícone de engrenagem > **"Configurações do projeto"**
+2. Role até **"Seus aplicativos"**
+3. Clique no ícone **Web** `</>`
+4. Registre com um nome (ex: "casa-yuri-web")
+5. Copie o objeto `firebaseConfig` que aparece
 
-## Passo 5: Configurar variáveis de ambiente
+## Passo 5: Variáveis de ambiente
 
-1. Crie um arquivo `.env` na raiz do projeto (ao lado do arquivo `package.json`)
-2. Copie o conteúdo do arquivo `.env.example`
-3. Substitua os valores com as credenciais do Firebase:
+1. Crie o arquivo `.env` na raiz do projeto (ao lado do `package.json`)
+2. Preencha com as credenciais copiadas:
 
 ```env
-VITE_FIREBASE_API_KEY=sua_api_key_aqui
-VITE_FIREBASE_AUTH_DOMAIN=seu_projeto.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=seu_projeto_id
-VITE_FIREBASE_STORAGE_BUCKET=seu_projeto.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=seu_sender_id
-VITE_FIREBASE_APP_ID=seu_app_id
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=...
+VITE_FIREBASE_STORAGE_BUCKET=...appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=...
+VITE_FIREBASE_APP_ID=...
 ```
 
-## Passo 6: Testar a aplicação
+## Passo 6: Domínios autorizados (para deploy)
 
-1. Certifique-se de que o arquivo `.env` está configurado
-2. Reinicie o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
-3. Abra a aplicação no navegador
-4. Os presentes devem ser carregados automaticamente do Firebase
+1. Em **Authentication** > **Settings** > **Authorized domains**
+2. Adicione `localhost` (já vem por padrão) e o domínio do deploy (ex: `seu-site.vercel.app`)
+
+## Passo 7: Testar
+
+1. Execute `npm run dev`
+2. A aplicação criará a coleção `gifts_yuri` automaticamente na primeira execução (se estiver vazia)
+3. Os presentes devem ser carregados automaticamente do Firebase
 
 ## Como funciona
 
@@ -87,15 +86,26 @@ VITE_FIREBASE_APP_ID=seu_app_id
 - **Proteção contra cancelamento**: As regras do Firestore impedem que um presente confirmado seja cancelado
 - **Validação**: O nome do comprador é validado tanto no frontend quanto no backend
 
-## Estrutura do banco de dados
+## Estrutura da coleção gifts_yuri
 
-O Firestore terá uma coleção chamada `gifts` com documentos no seguinte formato:
+A coleção será criada automaticamente com documentos no formato:
+
+| Campo | Tipo |
+|-------|------|
+| id | number |
+| name | string |
+| category | string |
+| image | string |
+| purchased | boolean |
+| buyerName | string (opcional) |
+
+Exemplo de documento:
 
 ```json
 {
   "id": 1,
-  "name": "Batedeira Planetária Inox",
-  "category": "Cozinha",
+  "name": "Jogo de toalhas - 1",
+  "category": "Banheiro",
   "image": "https://...",
   "purchased": false,
   "buyerName": "João Silva"

@@ -1,42 +1,62 @@
-import { collection, doc, getDocs, updateDoc, onSnapshot, query, setDoc } from 'firebase/firestore';
+
+import {
+  collection,
+  doc,
+  getDocs,
+  onSnapshot,
+  updateDoc,
+  writeBatch,
+} from 'firebase/firestore';
 import { db } from './config';
 import { Gift } from '../types';
 import { INITIAL_GIFTS } from '../constants';
 
-const GIFTS_COLLECTION = 'gifts';
+const GIFTS_COLLECTION = 'gifts_yuri';
 
-export const initializeGifts = async () => {
-  const giftsRef = collection(db, GIFTS_COLLECTION);
-  const snapshot = await getDocs(giftsRef);
+function docToGift(id: string, data: Record<string, unknown>): Gift {
+  return {
+    id: Number(id),
+    name: String(data.name ?? ''),
+    category: String(data.category ?? ''),
+    image: String(data.image ?? ''),
+    purchased: Boolean(data.purchased),
+    buyerName: data.buyerName ? String(data.buyerName) : undefined,
+  };
+}
 
+export async function initializeGifts(): Promise<void> {
+  const snapshot = await getDocs(collection(db, GIFTS_COLLECTION));
   if (snapshot.empty) {
+    const batch = writeBatch(db);
     for (const gift of INITIAL_GIFTS) {
-      await setDoc(doc(db, GIFTS_COLLECTION, gift.id.toString()), gift);
+      const ref = doc(db, GIFTS_COLLECTION, String(gift.id));
+      batch.set(ref, {
+        id: gift.id,
+        name: gift.name,
+        category: gift.category,
+        image: gift.image,
+        purchased: gift.purchased,
+      });
     }
+    await batch.commit();
   }
-};
+}
 
-export const getGifts = async (): Promise<Gift[]> => {
-  const giftsRef = collection(db, GIFTS_COLLECTION);
-  const snapshot = await getDocs(giftsRef);
-  return snapshot.docs.map(doc => doc.data() as Gift);
-};
-
-export const subscribeToGifts = (callback: (gifts: Gift[]) => void) => {
-  const giftsRef = collection(db, GIFTS_COLLECTION);
-  const q = query(giftsRef);
-
-  return onSnapshot(q, (snapshot) => {
-    const gifts = snapshot.docs.map(doc => doc.data() as Gift);
-    gifts.sort((a, b) => a.id - b.id);
+export function subscribeToGifts(callback: (gifts: Gift[]) => void): () => void {
+  const q = collection(db, GIFTS_COLLECTION);
+  const unsubscribe = onSnapshot(q, (snapshot) => {
+    const gifts: Gift[] = snapshot.docs
+      .map((d) => docToGift(d.id, d.data()))
+      .sort((a, b) => a.id - b.id);
     callback(gifts);
   });
-};
+  return unsubscribe;
+}
 
-export const purchaseGift = async (id: number, buyerName: string) => {
-  const giftRef = doc(db, GIFTS_COLLECTION, id.toString());
-  await updateDoc(giftRef, {
+export async function purchaseGift(id: number, buyerName: string): Promise<void> {
+  const ref = doc(db, GIFTS_COLLECTION, String(id));
+  await updateDoc(ref, {
     purchased: true,
-    buyerName: buyerName
+    buyerName,
   });
-};
+}

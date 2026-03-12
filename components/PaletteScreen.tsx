@@ -35,7 +35,7 @@ const PaletteScreen: React.FC = () => {
 
         <div className="grid grid-cols-2 gap-4 mb-12">
           {PALETTE.map((color, i) => (
-            <div key={i} className="group relative flex flex-col rounded-3xl shadow-sm border border-gray-100 dark:border-white/5 bg-gray-50 dark:bg-surface-dark overflow-hidden transition-all hover:translate-y-[-4px]">
+            <div key={i} className="group relative flex flex-col rounded-2xl shadow-card border border-primary/10 bg-white dark:bg-white/5 overflow-hidden transition-all hover:translate-y-[-4px] hover:shadow-soft">
               <div className="h-28 w-full transition-transform duration-500 group-hover:scale-110" style={{backgroundColor: color.hex}}></div>
               <div className="p-4 flex flex-col items-center">
                 <h3 className="text-sm font-bold text-text-main dark:text-white">{color.name}</h3>
@@ -59,7 +59,7 @@ const PaletteScreen: React.FC = () => {
       </main>
 
       <div className="fixed bottom-0 left-0 right-0 w-full max-w-md mx-auto p-5 bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-t border-gray-100 dark:border-white/5">
-        <Link to="/gifts" className="w-full bg-primary hover:bg-red-600 text-white font-bold h-14 rounded-full shadow-lg shadow-primary/30 flex items-center justify-center gap-2 transition-all active:scale-95">
+        <Link to="/gifts" className="w-full bg-primary hover:opacity-90 text-white font-bold h-14 rounded-xl shadow-soft flex items-center justify-center gap-2 transition-all active:scale-95">
           <span>Ver Presentes</span>
           <span className="material-symbols-outlined">redeem</span>
         </Link>
