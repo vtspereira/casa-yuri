@@ -25,6 +25,7 @@ function docToGift(id: string, data: Record<string, unknown>): Gift {
 }
 
 export async function initializeGifts(): Promise<void> {
+  if (!db) return;
   const snapshot = await getDocs(collection(db, GIFTS_COLLECTION));
   if (snapshot.empty) {
     const batch = writeBatch(db);
@@ -43,6 +44,10 @@ export async function initializeGifts(): Promise<void> {
 }
 
 export function subscribeToGifts(callback: (gifts: Gift[]) => void): () => void {
+  if (!db) {
+    callback([...INITIAL_GIFTS].sort((a, b) => a.id - b.id));
+    return () => {};
+  }
   const q = collection(db, GIFTS_COLLECTION);
   const unsubscribe = onSnapshot(q, (snapshot) => {
     const gifts: Gift[] = snapshot.docs
@@ -54,6 +59,7 @@ export function subscribeToGifts(callback: (gifts: Gift[]) => void): () => void 
 }
 
 export async function purchaseGift(id: number, buyerName: string): Promise<void> {
+  if (!db) throw new Error('Firebase não configurado. Configure as variáveis de ambiente na Vercel.');
   const ref = doc(db, GIFTS_COLLECTION, String(id));
   await updateDoc(ref, {
     purchased: true,
