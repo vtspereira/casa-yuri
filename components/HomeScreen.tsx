@@ -72,7 +72,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
       setBuyerName('');
     }
   };
-
+ 
   return (
     <div className="min-h-screen w-full bg-background-light dark:bg-background-dark pb-24">
       <header className="sticky top-0 z-[60] bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-primary/10">
