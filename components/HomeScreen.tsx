@@ -100,13 +100,13 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
                 </p>
               </div>
             </div>
-            <div className="h-56 md:h-full min-h-[280px] relative overflow-hidden order-1 md:order-2">
+            <div className="h-56 md:h-full min-h-[280px] relative overflow-hidden order-1 md:order-2 bg-background-light dark:bg-white/5 flex items-center justify-center">
               <img
-                src="/images/home.jpg"
+                src="/images/home.jpeg"
                 alt="Nosso Novo Lar"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                className="w-full h-full object-contain transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent md:from-transparent md:to-transparent md:bg-gradient-to-l md:from-black/20" />
+              <div className="absolute inset-0 md:bg-gradient-to-l md:from-black/15 pointer-events-none" />
             </div>
           </div>
           <div className="p-6 md:p-8 space-y-6 border-t border-primary/10">
