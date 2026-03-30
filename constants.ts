@@ -31,7 +31,6 @@ export const INITIAL_GIFTS: Gift[] = [
   
     // Outros / limpeza
     { id: 40, name: "Balde retrátil", category: "Outros", image: "https://vassourasguarany.com.br/storage/2024/05/balde-retratil-1.png", purchased: false },
-    { id: 41, name: "Varal de chão", category: "Outros", image: "https://images.tcdn.com.br/img/img_prod/1306368/varal_de_chao_com_abas_retratil_grande_aluminio_reforcado_e_resistente_103_1_28c40024db45d3c4152ba23dc5072483.jpg", purchased: false },
     { id: 42, name: "Mop spray", category: "Outros", image: "https://m.media-amazon.com/images/I/41bGKJT7rWL.jpg", purchased: false },
   
     // Cozinha
@@ -46,13 +45,16 @@ export const INITIAL_GIFTS: Gift[] = [
   
     // Quarto
     { id: 60, name: "Cobre leito Queen", category: "Quarto", image: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-lycl8006mu1h02", purchased: false },
-    { id: 61, name: "Garrafa térmica", category: "Cozinha", image: "https://images.tcdn.com.br/img/img_prod/1061582/garrafa_termica_elegance_azul_1_litro_termopro_houseware_3755_1_1221c77c4dfcca858e22819473dcf83b.jpg", purchased: false }
+    { id: 61, name: "Garrafa térmica", category: "Cozinha", image: "https://images.tcdn.com.br/img/img_prod/1061582/garrafa_termica_elegance_azul_1_litro_termopro_houseware_3755_1_1221c77c4dfcca858e22819473dcf83b.jpg", purchased: false },
+    { id: 62, name: "Cesto de Roupa", category: "Banheiro", image: "https://zanline.com.br/cdn/shop/files/199233921_CO570-cesto-roupas-sujas-01.jpg?v=1769624347", purchased: false },
+    { id: 63, name: "Porta frios", category: "Cozinha", image: "https://cdn.awsli.com.br/784/784082/produto/282665604/7d460435d7390ebea1dc958b6d51b0b6-mrriq26ki5.jpg", purchased: false },
+    { id: 64, name: "Kit utensílios de cozinha silicone", category: "Cozinha", image: "https://m.media-amazon.com/images/I/61g2kxGzsgL.jpg", purchased: false }
   
   ];
 
 export const PALETTE = [
-    { name: "Terracotta", hex: "#8B3E24", description: "Tonalidade principal" },
-    { name: "Terracotta Claro", hex: "#B55233", description: "Variação suave" },
-    { name: "Creme", hex: "#FAFAF9", description: "Base neutra" },
-    { name: "Escuro", hex: "#1C1917", description: "Contraste" }
+    { name: "Preto", hex: "#1C1917", description: "Detalhes e contraste" },
+    { name: "Branco", hex: "#FFFFFF", description: "Base neutra" },
+    { name: "Inox", hex: "#BFC3C7", description: "Tom metálico" },
+    { name: "Bambu", hex: "#C9A66B", description: "Tom natural" }
 ];

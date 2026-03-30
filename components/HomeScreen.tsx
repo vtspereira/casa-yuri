@@ -96,7 +96,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
                   Seja bem-vindo ao nosso <span className="italic text-primary">novo lar.</span>
                 </h1>
                 <p className="text-text-sub text-base leading-relaxed max-w-sm">
-                  Estamos montando cada detalhe com muito amor e sua presença tornará nossa casa completa.
+                  Sua presença tornará esse dia ainda mais especial.
                 </p>
               </div>
             </div>
