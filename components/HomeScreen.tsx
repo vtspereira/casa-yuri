@@ -78,7 +78,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
       <header className="sticky top-0 z-[60] bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-primary/10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
           <div className="flex flex-col">
-            <span className="font-display font-bold text-xl tracking-tight text-text-main dark:text-white">Bea & Yuri</span>
+            <span className="font-display font-bold text-xl tracking-tight text-text-main dark:text-white">Bia & Yuri</span>
             <span className="text-[10px] text-primary font-bold tracking-[0.25em] uppercase">Chá de Casa Nova</span>
           </div>
         </div>
