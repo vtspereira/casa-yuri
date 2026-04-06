@@ -37,7 +37,8 @@ const App: React.FC = () => {
       await purchaseGift(id, buyerName);
     } catch (error) {
       console.error('Erro ao confirmar presente:', error);
-      alert('Ocorreu um erro ao confirmar o presente. Tente novamente.');
+      const message = error instanceof Error ? error.message : 'Ocorreu um erro ao confirmar o presente.';
+      alert(message);
     }
   };
 
