@@ -1,7 +1,7 @@
 
 import { Gift } from './types';
 
-export const EVENT_DATE = "2026-04-15T16:00:00";
+export const EVENT_DATE = "2026-05-03T15:30:00";
 
 export const INITIAL_GIFTS: Gift[] = [
 
@@ -14,7 +14,6 @@ export const INITIAL_GIFTS: Gift[] = [
     { id: 6, name: "Kit copo medidor de vidro", category: "Cozinha", image: "https://m.media-amazon.com/images/I/71gSuDkXpkL.jpg", purchased: false },
     { id: 7, name: "Tábua de corte de vidro", category: "Cozinha", image: "https://m.media-amazon.com/images/I/61f+LdUbdKL.jpg", purchased: false },
     { id: 8, name: "Kit de peneiras inox", category: "Cozinha", image: "https://m.media-amazon.com/images/I/61jC1PeiMPL._AC_UF894,1000_QL80_.jpg", purchased: false },
-    { id: 9, name: "Porta tempero giratório", category: "Cozinha", image: "https://down-br.img.susercontent.com/file/sg-11134201-7rccw-lsjwu2pfmdp1a9", purchased: false },
     { id: 10, name: "Jogo de facas", category: "Cozinha", image: "https://http2.mlstatic.com/D_NQ_NP_2X_601475-MLA99952943299_112025-F.webp", purchased: false },
     { id: 11, name: "Abridor de lata", category: "Cozinha", image: "https://cdn.awsli.com.br/761/761999/produto/16759359334ed9dfd18.jpg", purchased: false },
     { id: 20, name: "Jogo de xícara com pires", category: "Cozinha", image: "https://www.havan.com.br/media/catalog/product/cache/820af7facfa7aca6eb3c138e3457dc8d/x/i/xicara-de-cha-com-pires-francis-biona-havan-casa-200ml_1169316.webp", purchased: false },
@@ -35,10 +34,8 @@ export const INITIAL_GIFTS: Gift[] = [
   
     // Cozinha
     { id: 50, name: "Batedeira 127v", category: "Cozinha", image: "https://m.media-amazon.com/images/I/51qLj-7DnGL._AC_SY300_SX300_QL70_ML2_.jpg", purchased: false },
-    { id: 51, name: "Liquidificador 127v", category: "Cozinha", image: "https://martinelloeletrodomesticos.fbitsstatic.net/img/p/liquidificador-oster-oliq610-1400w-3-2-l-15-velocidades-110v-76005/262595.jpg", purchased: false },
     { id: 52, name: "Aspirador de pó vertical 127v", category: "Outros", image: "https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/oficinadosbits/media/uploads/produtos/foto/jrcmlzvj/file.png", purchased: false },
     { id: 53, name: "Cafeteira elétrica 127v", category: "Cozinha", image: "https://m.media-amazon.com/images/I/41QniS6pVmL._AC_SY300_SX300_QL70_ML2_.jpg", purchased: false },
-    { id: 54, name: "Torradeira Oster Inox 127v", category: "Cozinha", image: "https://jcsbrasil.vteximg.com.br/arquivos/ids/194079-1000-1000/OTOR600----1.jpg", purchased: false },
     { id: 55, name: "Passadeira a vapor portátil 127v", category: "Outros", image: "https://jcsbrasil.vteximg.com.br/arquivos/ids/226794-1000-1000/09.jpg", purchased: false },
     { id: 56, name: "Processador de alimentos 127v", category: "Cozinha", image: "https://images.tcdn.com.br/img/img_prod/789576/processador_de_alimentos_mondial_mpn_01_b_2093_01_preto_dm2t155645n_1787795_1_46ca934d0984fee8099b9d869acf6f3a.png", purchased: false },
     { id: 57, name: "Mixer 127v", category: "Cozinha", image: "https://images.tcdn.com.br/img/img_prod/1151387/mixer_vertical_300w_127v_m300_br_black_decker_5885_1_d3c8a65b237fa829eea2be4d0cc1cbe1.jpeg", purchased: false },
@@ -48,7 +45,9 @@ export const INITIAL_GIFTS: Gift[] = [
     { id: 61, name: "Garrafa térmica", category: "Cozinha", image: "https://images.tcdn.com.br/img/img_prod/1061582/garrafa_termica_elegance_azul_1_litro_termopro_houseware_3755_1_1221c77c4dfcca858e22819473dcf83b.jpg", purchased: false },
     { id: 62, name: "Cesto de Roupa", category: "Banheiro", image: "https://zanline.com.br/cdn/shop/files/199233921_CO570-cesto-roupas-sujas-01.jpg?v=1769624347", purchased: false },
     { id: 63, name: "Porta frios", category: "Cozinha", image: "https://cdn.awsli.com.br/784/784082/produto/282665604/7d460435d7390ebea1dc958b6d51b0b6-mrriq26ki5.jpg", purchased: false },
-    { id: 64, name: "Kit utensílios de cozinha silicone", category: "Cozinha", image: "https://m.media-amazon.com/images/I/61g2kxGzsgL.jpg", purchased: false }
+    { id: 64, name: "Kit utensílios de cozinha silicone", category: "Cozinha", image: "https://m.media-amazon.com/images/I/61g2kxGzsgL.jpg", purchased: false },
+    { id: 65, name: "Escorredor de louças", category: "Cozinha", image: "https://http2.mlstatic.com/D_NQ_NP_2X_994756-MLA95692472242_102025-F.webp", purchased: false },
+    { id: 66, name: "Porta guardanapos", category: "Cozinha", image: "https://down-br.img.susercontent.com/file/br-11134207-81zuo-ml2ge0pgivi8c1", purchased: false }
   
   ];
 

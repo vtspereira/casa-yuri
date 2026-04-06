@@ -41,7 +41,8 @@ const LocationScreen: React.FC = () => {
                   <h3 className="font-bold text-text-main dark:text-white uppercase text-[10px] tracking-widest mb-1">Endereço do Evento</h3>
                   <p className="text-text-sub text-sm leading-relaxed">
                     R. Alberto Otto, 1316 - Santa Cândida<br/>
-                    Curitiba - PR
+                    Curitiba - PR<br/>
+                    Salão 01
                   </p>
                 </div>
               </div>
@@ -52,7 +53,7 @@ const LocationScreen: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-text-main dark:text-white uppercase text-[10px] tracking-widest mb-1">Quando?</h3>
-                  <p className="text-text-sub text-sm leading-relaxed">08 de Fevereiro de 2026<br/>Às 16:00 horas</p>
+                  <p className="text-text-sub text-sm leading-relaxed">03 de Maio de 2026<br/>Às 15:30 horas</p>
                 </div>
               </div>
 

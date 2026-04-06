@@ -90,7 +90,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
             <div className="p-8 md:p-12 space-y-6 order-2 md:order-1">
               <div className="space-y-4">
                 <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-[9px] font-bold uppercase tracking-widest rounded-xl">
-                  15 de Abril, 2026
+                  03 de Maio, 2026 - 15:30
                 </span>
                 <h1 className="text-4xl md:text-5xl font-display font-normal text-text-main dark:text-white tracking-tight leading-tight">
                   Seja bem-vindo ao nosso <span className="italic text-primary">novo lar.</span>
@@ -118,9 +118,10 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
                 <div className="min-w-0">
                   <h3 className="font-display font-bold text-base text-text-main dark:text-white">Onde?</h3>
                   <p className="text-sm text-text-sub mt-0.5">R. Alberto Otto, 1316 - Santa Cândida, Curitiba</p>
+                  <p className="text-sm text-text-sub">03/05/2026 às 15:30 - Salão 01</p>
                   <p className="text-xs text-primary font-medium mt-2 flex items-center gap-1.5">
                     <span className="material-symbols-outlined text-sm">info</span>
-                    Identifique-se na portaria e siga para o salão de eventos.
+                    Identifique-se na portaria e siga para o Salão 01.
                   </p>
                 </div>
               </div>
@@ -168,6 +169,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ gifts, onPurchase }) => {
               <div className="space-y-2">
                 <h2 className="text-2xl md:text-3xl font-display font-bold text-text-main dark:text-white">Sugestões de Presentes</h2>
                 <p className="text-text-sub text-sm">Escolha uma categoria e status para filtrar.</p>
+                <p className="text-xs font-bold text-primary">Pix (41) 99604-6483 - Yuri Zinko de Lima</p>
               </div>
               <Link
                 to="/gifts"
